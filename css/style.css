@@ -30,8 +30,34 @@ html,body
   text-align:center;
   vertical-align:middle;
   font-size:1.3em;
-  box-shadow: -5px 0px 5px;
-  z-index:2;
   }
-  
+@media (min-width:40.5em) and (max-width:60em)
+  {#directionHeader
+    {height:18%;
+    }
+  #directionIcon
+    {width:20%;
+    }
+  #distanceFooter
+    {height:7%;
+    }
+  #map-canvas
+    {height:74%;
+    }
+  }
+@media (min-width:60em)
+  {#directionHeader
+    {height:14%;
+    }
+  #directionIcon
+    {width:11%;
+    }
+  #distanceFooter
+    {height:6%;
+    }
+  #map-canvas
+    {height:78%;
+    }
+  }
+
 
