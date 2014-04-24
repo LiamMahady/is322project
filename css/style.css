@@ -3,6 +3,25 @@ html,body
   width:100%;
   }
 #map-canvas
-  {height:90%;
+  {height:78%;
   width:100%;
   }
+#directionHeader
+  {height:22%;
+  background-color:rgb(12,91,57);
+  color:#ffffff;
+  }
+#directionIcon
+  {height:75%;
+  width:29%;
+  float:left;
+  border-right:1px solid rgb(33,113,82);
+  position:relative;
+  top:20%;
+  }
+#directionLeg
+  {text-align:center;
+  vertical-align:middle;
+  font-size: 1.5em;
+  }
+
