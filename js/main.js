@@ -1,4 +1,4 @@
-function initialize()
+/*function initialize()
   {var mapCenter=new google.maps.LatLng(60.741,-74.182);
   var mapOptions =
     {center: mapCenter,
@@ -13,4 +13,10 @@ function initialize()
     });
   }
  }
-google.maps.event.addDomListener(window, 'load', initialize);
+google.maps.event.addDomListener(window, 'load', initialize);*/
+
+$(function ()
+  {'use strict';
+  new app.MapView();
+  }
+ );
