@@ -50,23 +50,44 @@ function callback(results,status){
   console.debug(status);
   if (status == google.maps.places.PlacesServiceStatus.OK){
     console.debug(results.length);
-    
-    var place = results[0];
-    document.getElementById("directionLeg").innerHTML = "Directions to : "+place.name;
-    var drivingDirections = {
-      origin:inital,
-      destination:place.geometry.location,
-      travelMode: google.maps.TravelMode.DRIVING
-    };
-    directionsService.route(drivingDirections,function(response,status){
-      if (status==google.maps.DirectionsStatus.OK){
-        console.debug(response.routes[0].legs[0].distance.value);
-	document.getElementById("distanceFooter").innerHTML = response.routes[0].legs[0].distance.value+" meters";
-        directionsDisplay.setDirections(response);
+    //the places request ranks places by physical distance
+    //so we'll use the distance matrix to get driving distance
+    var distService=new google.maps.DistanceMatrixService();
+    distReq=
+      {origins:[inital],
+      destinations:[],
+      travelMode:google.maps.TravelMode.DRIVING
+      };
+    for (var i=0;i<results.length && i<100;i++)
+      {distReq.destinations.push(results[i].geometry.location);
       }
-      else
-        console.debug("failed:"+status);
-    });
+    distService.getDistanceMatrix
+      (distReq, function(response,status)
+        {var dist=response.rows[0].elements[0].distance.value;
+        var place=results[0];
+        for (var i=1;i<response.rows[0].elements.length;i++)
+          {var newDist=response.rows[0].elements[i].distance.value;
+          if (newDist<dist)
+            {dist=newDist;
+            place=results[i];
+            }
+          }
+        var drivingDirections = {
+          origin:inital,
+          destination:place.geometry.location,
+          travelMode: google.maps.TravelMode.DRIVING
+        };
+	document.getElementById("directionLeg").innerHTML = "Directions to : "+place.name;
+        directionsService.route(drivingDirections,function(response,status){
+          if (status==google.maps.DirectionsStatus.OK){
+            document.getElementById("distanceFooter").innerHTML = response.routes[0].legs[0].distance.value+" meters"; 
+	    directionsDisplay.setDirections(response);
+          }
+          else
+            console.debug("failed:"+status);
+        });
+        }
+      );
 
     //for (var i = 0; i<results.length; i++){
       //var place = results[i];
