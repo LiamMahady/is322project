@@ -38,6 +38,7 @@ var directionsService = new google.maps.DirectionsService();
 	console.debug(inital);
 	var service = new google.maps.places.PlacesService(map);
 	directionsDisplay.setMap(map);
+	directionsDisplay.setPanel(document.getElementById("directionList"));
 	service.nearbySearch(request,callback);
         });
       }
