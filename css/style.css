@@ -20,6 +20,7 @@ html,body
   {height:69%;
   top:22%;
   width:100%;
+  z-index:1;
   }
 .map-canvasAside
   {display:none;
