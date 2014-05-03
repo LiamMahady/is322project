@@ -14,8 +14,15 @@ html,body
   display:none;
   }
 #map-canvas
+  {position:absolute;
+  }
+.map-canvas
   {height:69%;
+  top:22%;
   width:100%;
+  }
+.map-canvasAside
+  {display:none;
   }
 #directionHeader
   {height:22%;
@@ -45,6 +52,8 @@ html,body
   text-align:center;
   vertical-align:middle;
   font-size:1.3em;
+  position:absolute;
+  top:91%;
   }
 #listBtn
   {float:right;
@@ -63,12 +72,22 @@ html,body
     }
   .footer
     {height:7%;
+    top:92%;
     }
-  #map-canvas
+  .map-canvas
     {height:74%;
+    top:18%;
+    }
+  .map-canvasAside
+    {display:initial;
+    width:33%;
+    left:66%;
+    height:92%;
+    top:0%;
     }
   #directionList
-    {height:91%
+    {height:91%;
+    width:66%;
     }
   }
 @media (min-width:60em)
@@ -80,12 +99,22 @@ html,body
     }
   .footer
     {height:6%;
+    top:92%;
     }
-  #map-canvas
+  .map-canvas
     {height:78%;
+    top:14%;
+    }
+  .map-canvasAside
+    {display:initial;
+    width:50%;
+    left:50%;
+    height:92%;
+    top:0%;
     }
   #directionList
     {height:92%;
+    width:50%;
     }
   }
 

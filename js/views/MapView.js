@@ -49,6 +49,7 @@ var directionsService = new google.maps.DirectionsService();
     toggleScreen: function()
       {this.$mapScreen.toggle();
       this.$listScreen.toggle();
+      this.$('#map-canvas').toggleClass('map-canvasAside');
       }
     });
   }
