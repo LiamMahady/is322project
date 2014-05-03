@@ -52,6 +52,7 @@ html,body
 #directionList{
   width:100%;
   height:89%;
+  overflow:auto;
   }
 @media (min-width:40.5em) and (max-width:60em)
   {#directionHeader
