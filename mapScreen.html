@@ -20,7 +20,12 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <div id="directionList"></div>
+        <div id="directionListScreen">
+	  <div id="directionList"></div>
+	  <div id="buttonFooter" class="footer">
+	    <input id="mapBtn" class="screenToggle" type="button" value="Map"></input>
+	  </div>
+	</div>
 	<div id="directionMap">
 	  <div id="directionHeader">
           <!--  <div id="directionIcon"></div> -->
@@ -28,7 +33,10 @@
             <div id="directionLeg">Head southwest on Summit St toward Warren St</div>
           </div>
           <div id="map-canvas"></div>
-          <div id="distanceFooter">0.1mi</div>
+          <div class="footer">
+	    <input id="listBtn" class="screenToggle" type="button" value="List" />
+	    <div id="distanceFooter">0.1mi</div>
+	  </div>
         </div>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.0.min.js"><\/script>')</script>

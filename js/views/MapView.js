@@ -9,11 +9,14 @@ var directionsService = new google.maps.DirectionsService();
   {'use strict';
   app.MapView=Backbone.View.extend
     ({el: '#mapDisplay',
+    events: {'click .screenToggle' : 'toggleScreen'},
     initialize: function()
       {//variables for displaying direction date
       this.$nextDirectionIcon=this.$('#nextDirectionIcon');
       this.$directionLeg=this.$('#directionLeg');
       this.$distanceFooter=this.$('#distanceFooter');
+      this.$mapScreen=this.$('#directionMap');
+      this.$listScreen=this.$('#directionListScreen');
       var mapCenter=new google.maps.LatLng(60.741,-74.182);
       var mapOptions =
         {center: mapCenter,
@@ -42,6 +45,10 @@ var directionsService = new google.maps.DirectionsService();
 	service.nearbySearch(request,callback);
         });
       }
+      },
+    toggleScreen: function()
+      {this.$mapScreen.toggle();
+      this.$listScreen.toggle();
       }
     });
   }
